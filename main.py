@@ -336,7 +336,7 @@ def download_file(url, country, possible_file_types, force_pbf):
     RECUSIVE_DOWNLOAD_FLAG += 1
 
     if RECUSIVE_DOWNLOAD_FLAG > 5:
-        print("Either an incorrect input was entered too many times, or a serious error has occured. Closing program.")
+        print("Either an incorrect input was entered too many times, or a serious error has occurred. Closing program.")
         quit()
     elif RECUSIVE_DOWNLOAD_FLAG > 0:
         overwrite = None
@@ -404,13 +404,15 @@ if __name__ == "__main__":
     port = input('Please enter a port (default: 5432): ')
     if len(port) < 1:
         port = 5432
-    pgdb = input('Please enter a database name (default: user): ')
+    pgdb = input('Please enter a database name (default: db): ')
     if len(pgdb) < 1:
-        pgdb = 'user'
+        pgdb = 'db'
 
-    pguser = input('Please enter a user name: ')
+    pguser = input('Please enter a user name: (default: user)')
+    if len(pguser) < 1:
+        pguser = 'user'
     password = input('Please enter a password '
-                     '(Please note, this will be asked for a second time if an OSM file is found): ')
+                     '(Please note, this will be asked for a second time if an OGC file is found): ')
 
     force_tags = input('Do you want to force download the OGC file with tags? (y/N)')
 
